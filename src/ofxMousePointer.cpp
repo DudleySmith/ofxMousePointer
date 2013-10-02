@@ -28,22 +28,22 @@ void ofxMousePointer::update(){
 //All this must be declared even if we are just going to use only one of this methods.
 //--------------------------------------------------------------
 void ofxMousePointer::mouseMoved(ofMouseEventArgs & args){
-    
+
     m_oPos.set(ofGetMouseX(), ofGetMouseY());
     m_oVel = ofPoint(ofGetMouseX(), ofGetMouseY()) - ofPoint(ofGetPreviousMouseX(), ofGetPreviousMouseY());
-     
+
 }
 //--------------------------------------------------------------
 void ofxMousePointer::mouseDragged(ofMouseEventArgs & args){
-    
+
 }
 //--------------------------------------------------------------
 void ofxMousePointer::mousePressed(ofMouseEventArgs & args){
-    
+
 }
 //--------------------------------------------------------------
 void ofxMousePointer::mouseReleased(ofMouseEventArgs & args){
-    
+
 }
 
 //------------------------------------------------------------
@@ -51,7 +51,7 @@ void ofxMousePointer::hideCursor(){
 #if defined(TARGET_OSX) && defined(MAC_OS_X_VERSION_10_7)
     CGDisplayHideCursor(NULL);
 #else
-    glutSetCursor(GLUT_CURSOR_NONE);
+//    glutSetCursor(GLUT_CURSOR_NONE);
 #endif
 }
 
@@ -60,6 +60,6 @@ void ofxMousePointer::showCursor(){
 #if defined(TARGET_OSX) && defined(MAC_OS_X_VERSION_10_7)
     CGDisplayShowCursor(NULL);
 #else
-    glutSetCursor(GLUT_CURSOR_LEFT_ARROW);
+   // glutSetCursor(GLUT_CURSOR_LEFT_ARROW);
 #endif
 }
