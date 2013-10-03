@@ -9,21 +9,45 @@
 #include "ofxMousePointer.h"
 
 //--------------------------------------------------------------
-void ofxMousePointer::setup(){
+void ofxMousePointer::setup(bool _isMousePointer){
+    
+    m_bIsMousePointer = _isMousePointer;
+    
     // Setup mouse positions --
-    m_oPos.set(ofGetMouseX(), ofGetMouseY());
+    if(m_bIsMousePointer)
+        update();
+    else
+        update(ofPoint(0.5*ofGetWidth(), 0.5*ofGetHeight()));
+    
     // Register Events in this class
     hideCursor();
     //ofRegisterMouseEvents(this);
+    
 }
 
 
 void ofxMousePointer::update(){
-    // First, calculate velocity with old and new positions of mouse
-    m_oVel = ofPoint(ofGetMouseX(), ofGetMouseY()) - m_oPos;
-    // Second,
-    m_oPos.set(ofGetMouseX(), ofGetMouseY());
+
+    if(m_bIsMousePointer)
+        update(ofPoint(ofGetMouseX(), ofGetMouseY()));
+    
 }
+
+void ofxMousePointer::update(ofPoint _newPos){
+    
+    // First, calculate velocity with old and new positions of mouse
+    m_oVel = _newPos - m_oPos;
+    // Second,
+    m_oPos = _newPos;
+    
+}
+
+void ofxMousePointer::move(ofVec3f _move){
+    
+    update(m_oPos + _move);
+    
+}
+
 //We need to declare all this mouse events methods to be able to listen to mouse events.
 //All this must be declared even if we are just going to use only one of this methods.
 //--------------------------------------------------------------

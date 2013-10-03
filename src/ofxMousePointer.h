@@ -12,14 +12,20 @@
 
 class ofxMousePointer{
     
+private:
+    bool m_bIsMousePointer;
+    
 protected:
     ofPoint m_oPos;
     ofPoint m_oVel;
 
-    void setup();
+    void setup(bool _isMousePointer);
     
 public:
+    void update(ofPoint _newPos);
     void update();
+    
+    void move(ofVec3f _move);
     
     //We need to declare all this mouse events methods to be able to listen to mouse events.
     //All this must be declared even if we are just going to use only one of this methods.

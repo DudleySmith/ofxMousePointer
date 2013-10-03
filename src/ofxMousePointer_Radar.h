@@ -20,6 +20,6 @@ public:
     // Method for drawing something : mandatory
     void    draw() const;
     //
-    void    setup(float _size = 0);
+    void    setup(bool _isMousePointer, float _size = 0);
     
 };

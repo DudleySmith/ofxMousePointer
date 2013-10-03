@@ -9,9 +9,9 @@
 #include "ofxMousePointer_Radar.h"
 
 // ------------------------------------------------------------
-void ofxMousePointer_Radar::setup(float _size)
+void ofxMousePointer_Radar::setup(bool _isMousePointer, float _size)
 {
-    ofxMousePointer::setup();
+    ofxMousePointer::setup(_isMousePointer);
     m_fSize = _size;
 }
 
