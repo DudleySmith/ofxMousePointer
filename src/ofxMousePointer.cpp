@@ -14,13 +14,14 @@ void ofxMousePointer::setup(bool _isMousePointer){
     m_bIsMousePointer = _isMousePointer;
     
     // Setup mouse positions --
-    if(m_bIsMousePointer)
+    if(m_bIsMousePointer){
         update();
-    else
+        // Register Events in this class
+        hideCursor();
+    }else{
         update(ofPoint(0.5*ofGetWidth(), 0.5*ofGetHeight()));
-    
-    // Register Events in this class
-    hideCursor();
+    }
+
     //ofRegisterMouseEvents(this);
     
 }
