@@ -20,6 +20,6 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-    ofxMousePointer_Radar m_oPointer;
+        ofxMousePointer_Radar m_oPointer;
     
 };
